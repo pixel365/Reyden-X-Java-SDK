@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.reydenx</groupId>
-    <artifactId>sdk</artifactId>
-    <version>1.0</version>
+    <groupId>io.github.pixel365</groupId>
+    <artifactId>reydenx</artifactId>
+    <version>1.1</version>
     <packaging>pom</packaging>
 
     <name>Reyden-X SDK</name>
@@ -34,7 +34,7 @@
         <connection>scm:git:git:github.com/pixel365/Reyden-X-Java-SDK.git</connection>
         <developerConnection>scm:git:ssh://github.com/pixel365/Reyden-X-Java-SDK.git</developerConnection>
         <url>https://github.com/pixel365/Reyden-X-Java-SDK</url>
-        <tag>1.0</tag>
+        <tag>1.1</tag>
     </scm>
 
     <distributionManagement>
@@ -55,9 +55,19 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>

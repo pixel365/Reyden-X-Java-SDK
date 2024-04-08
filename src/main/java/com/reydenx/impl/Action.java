@@ -21,7 +21,7 @@ public class Action {
         this.typeRef = new TypeReference<ResultModel<ActionModel>>() {};
     }
 
-    private ResultModel<ActionModel> r(String path) throws Throwable {
+    protected ResultModel<ActionModel> r(String path) throws Throwable {
         return this.client.<ResultModel<ActionModel>>patch(path, null, typeRef);
     }
 

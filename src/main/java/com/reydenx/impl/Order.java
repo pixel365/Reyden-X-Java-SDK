@@ -32,7 +32,7 @@ public class Order {
         this.client = client;
     }
 
-    private <T, P> T post(String endpoint, P payload, TypeReference<T> typeReference)
+    protected <T, P> T post(String endpoint, P payload, TypeReference<T> typeReference)
             throws Throwable {
         ObjectMapper mapper = new ObjectMapper();
         String jsoString = mapper.writeValueAsString(payload);

@@ -21,7 +21,7 @@ public class Traffic {
         this.typeRef = new TypeReference<ResultModel<List<TrafficModel>>>() {};
     }
 
-    private ResultModel<List<TrafficModel>> r(String code) throws Throwable {
+    protected ResultModel<List<TrafficModel>> r(String code) throws Throwable {
         return this.client.<ResultModel<List<TrafficModel>>>get("/traffic/" + code + "/", typeRef);
     }
 
