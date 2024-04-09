@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see com.reydenx.impl.Order
  */
 public class OrderModel extends ADate {
-    // TODO parameters, extras, statistics
+    // TODO extras
 
     @JsonProperty("uuid")
     protected String uuid;
@@ -36,6 +36,12 @@ public class OrderModel extends ADate {
 
     @JsonProperty("content_type")
     protected String contentType;
+
+    @JsonProperty("parameters")
+    protected ParametersModel parameters;
+
+    @JsonProperty("statistics")
+    protected StatisticsModel statistics;
 
     @JsonProperty("content_classification_labels")
     protected List<String> contentClassificationLabels;
@@ -151,6 +157,22 @@ public class OrderModel extends ADate {
      */
     public void setContentType(String contentType) {
         this.contentType = contentType;
+    }
+
+    public ParametersModel getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(ParametersModel parameters) {
+        this.parameters = parameters;
+    }
+
+    public StatisticsModel getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(StatisticsModel statistics) {
+        this.statistics = statistics;
     }
 
     /**

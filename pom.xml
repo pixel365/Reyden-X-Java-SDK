@@ -6,8 +6,7 @@
 
     <groupId>io.github.pixel365</groupId>
     <artifactId>reydenx</artifactId>
-    <version>1.1</version>
-    <packaging>pom</packaging>
+    <version>1.2</version>
 
     <name>Reyden-X SDK</name>
     <description>Reyden-X is an automated service for promoting live broadcasts on external sites with integrated system of viewers and views management.</description>
@@ -34,7 +33,7 @@
         <connection>scm:git:git:github.com/pixel365/Reyden-X-Java-SDK.git</connection>
         <developerConnection>scm:git:ssh://github.com/pixel365/Reyden-X-Java-SDK.git</developerConnection>
         <url>https://github.com/pixel365/Reyden-X-Java-SDK</url>
-        <tag>1.1</tag>
+        <tag>1.2</tag>
     </scm>
 
     <distributionManagement>
