@@ -21,6 +21,11 @@ public class Traffic {
         this.typeRef = new TypeReference<ResultModel<List<TrafficModel>>>() {};
     }
 
+    /**
+     * @param code Traffic Type
+     * @return {@link com.reydenx.models.ResultModel<List<TrafficModel>>}
+     * @throws Throwable
+     */
     protected ResultModel<List<TrafficModel>> r(String code) throws Throwable {
         return this.client.<ResultModel<List<TrafficModel>>>get("/traffic/" + code + "/", typeRef);
     }

@@ -21,6 +21,11 @@ public class Action {
         this.typeRef = new TypeReference<ResultModel<ActionModel>>() {};
     }
 
+    /**
+     * @param path API endpoint relative path
+     * @return {@link com.reydenx.models.ResultModel<ActionModel>}
+     * @throws Throwable
+     */
     protected ResultModel<ActionModel> r(String path) throws Throwable {
         return this.client.<ResultModel<ActionModel>>patch(path, null, typeRef);
     }
@@ -31,7 +36,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().launchOrder(123456);
+     * ResultModel<ActionModel> result = client.getActionInstance().launchOrder(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -52,7 +57,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().stopOrder(123456);
+     * ResultModel<ActionModel> result = client.getActionInstance().stopOrder(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -73,7 +78,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().cancelOrder(123456);
+     * ResultModel<ActionModel> result = client.getActionInstance().cancelOrder(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -94,7 +99,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().increaseOff(123456);
+     * ResultModel<ActionModel> result = client.getActionInstance().increaseOff(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -115,7 +120,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().changeOnlineValue(123456, 100);
+     * ResultModel<ActionModel> result = client.getActionInstance().changeOnlineValue(123456, 100);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -139,7 +144,7 @@ public class Action {
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
      * ResultModel<ActionModel> result =
-     *         client.getActionsInstance().changeIncreaseValue(123456, 100);
+     *         client.getActionInstance().changeIncreaseValue(123456, 100);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -162,7 +167,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().increaseOn(123456, 100);
+     * ResultModel<ActionModel> result = client.getActionInstance().increaseOn(123456, 100);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -184,7 +189,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().addViews(123456, 10000);
+     * ResultModel<ActionModel> result = client.getActionInstance().addViews(123456, 10000);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -208,7 +213,7 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionsInstance().taskStatus(123456, "TASK_ID"");
+     * ResultModel<ActionModel> result = client.getActionInstance().taskStatus(123456, "TASK_ID"");
      * }</pre>
      * 
      * @param orderId Order Id

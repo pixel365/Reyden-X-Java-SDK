@@ -32,6 +32,15 @@ public class Order {
         this.client = client;
     }
 
+    /**
+     * @param <T> Any Model
+     * @param <P> Payload Type
+     * @param endpoint API endpoint relative path
+     * @param payload Request data
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} of model
+     * @return <T> Any Model
+     * @throws Throwable
+     */
     protected <T, P> T post(String endpoint, P payload, TypeReference<T> typeReference)
             throws Throwable {
         ObjectMapper mapper = new ObjectMapper();
@@ -46,7 +55,7 @@ public class Order {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<List<OrderModel>> result = client.getOrdersInstance().allOrders();
+     * ResultModel<List<OrderModel>> result = client.getOrderInstance().allOrders();
      * }</pre>
      * 
      * @param cursor Optional parameter pointing to the next page of the orders list
@@ -71,7 +80,7 @@ public class Order {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<OrderModel> result = client.getOrdersInstance().orderDetails(123456);
+     * ResultModel<OrderModel> result = client.getOrderInstance().orderDetails(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -92,7 +101,7 @@ public class Order {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<List<PaymentModel>> result = client.getOrdersInstance().orderPayments(123456);
+     * ResultModel<List<PaymentModel>> result = client.getOrderInstance().orderPayments(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -122,7 +131,7 @@ public class Order {
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
      * ResultModel<List<DateAndQuantityModel>> result =
-     *         client.getOrdersInstance().orderClicksStats(123456);
+     *         client.getOrderInstance().orderClicksStats(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -146,7 +155,7 @@ public class Order {
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
      * ResultModel<List<DateAndQuantityModel>> result =
-     *         client.getOrdersInstance().orderViewsStats(123456);
+     *         client.getOrderInstance().orderViewsStats(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -170,7 +179,7 @@ public class Order {
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
      * ResultModel<List<OnlineStatsModel>> result =
-     *         client.getOrdersInstance().orderOnlineStats(123456);
+     *         client.getOrderInstance().orderOnlineStats(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -193,7 +202,7 @@ public class Order {
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
      * ResultModel<List<DomainStatsModel>> result =
-     *         client.getOrdersInstance().orderDomainsStats(123456);
+     *         client.getOrderInstance().orderDomainsStats(123456);
      * }</pre>
      * 
      * @param orderId Order Id
@@ -219,7 +228,7 @@ public class Order {
      * identifiers.add(12345);
      * identifiers.add(678910);
      * ResultModel<List<IdAndQuantityModel>> result =
-     *         client.getOrdersInstance().multipleOrdersViewsStats(identifiers);
+     *         client.getOrderInstance().multipleOrdersViewsStats(identifiers);
      * }</pre>
      * 
      * @param ordersIdentifiers One or more order IDs
@@ -249,7 +258,7 @@ public class Order {
      * identifiers.add(12345);
      * identifiers.add(678910);
      * ResultModel<List<IdAndQuantityModel>> result =
-     *         client.getOrdersInstance().multipleOrdersClicksStats(identifiers);
+     *         client.getOrderInstance().multipleOrdersClicksStats(identifiers);
      * }</pre>
      * 
      * @param ordersIdentifiers One or more order IDs
@@ -284,7 +293,7 @@ public class Order {
      * params.setSmoothGain(new SmoothGainModel(false, 0));
      * params.setDelayTime(0);
      * params.setTwitchId(123);
-     * ResultModel<TaskModel> result = client.getOrdersInstance().createOrderForStream(params);
+     * ResultModel<TaskModel> result = client.getOrderInstance().createOrderForStream(params);
      * }</pre>
      * 
      * <pre>
@@ -298,7 +307,7 @@ public class Order {
      * params.setLaunchMode("auto");
      * params.setSmoothGain(new SmoothGainModel(false, 0));
      * params.setDelayTime(0);
-     * ResultModel<TaskModel> result = client.getOrdersInstance().createOrderForStream(params);
+     * ResultModel<TaskModel> result = client.getOrderInstance().createOrderForStream(params);
      * }</pre>
      * 
      * @param parameters {@link com.reydenx.models.TwitchOrderParametersModel} or

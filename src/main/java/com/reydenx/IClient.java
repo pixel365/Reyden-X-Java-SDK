@@ -18,8 +18,8 @@ public interface IClient {
          * Implements a GET request to the API
          * 
          * @param <T> Any Model
-         * @param endpoint Relative Path
-         * @param typeReference
+         * @param endpoint API endpoint relative path
+         * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} of model
          * @return Any Model
          * @throws ReydenXException
          */
@@ -29,9 +29,9 @@ public interface IClient {
          * Implements a POST request to the API
          * 
          * @param <T> Any Model
-         * @param endpoint Relative Path
-         * @param payload Data
-         * @param typeReference
+         * @param endpoint API endpoint relative path
+         * @param payload Request data
+         * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} of model
          * @return Any Model
          * @throws ReydenXException
          */
@@ -42,9 +42,9 @@ public interface IClient {
          * Implements a PATCH request to the API
          * 
          * @param <T> Any Model
-         * @param endpoint Relative Path
-         * @param payload Data
-         * @param typeReference
+         * @param endpoint API endpoint relative path
+         * @param payload Request data
+         * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} of model
          * @return Any Model
          * @throws ReydenXException
          */
@@ -54,7 +54,7 @@ public interface IClient {
         /**
          * Implements a DELETE request to the API
          * 
-         * @param endpoint Relative Path
+         * @param endpoint API endpoint relative path
          * @throws ReydenXException
          */
         void delete(String endpoint) throws ReydenXException;
@@ -88,17 +88,17 @@ public interface IClient {
         /**
          * @return {@link com.reydenx.impl.Action} instance
          */
-        Action getActionsInstance();
+        Action getActionInstance();
 
         /**
          * @return {@link com.reydenx.impl.Order} instance
          */
-        Order getOrdersInstance();
+        Order getOrderInstance();
 
         /**
          * @return {@link com.reydenx.impl.Price} instance
          */
-        Price getPricesInstance();
+        Price getPriceInstance();
 
         /**
          * @return {@link com.reydenx.impl.Traffic} instance

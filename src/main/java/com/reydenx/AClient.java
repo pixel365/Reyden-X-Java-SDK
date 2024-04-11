@@ -32,8 +32,8 @@ public abstract class AClient {
     }
 
     /**
-     * @param username
-     * @throws UnsupportedOperationException
+     * @param username Username
+     * @throws UnsupportedOperationException If username is empty
      */
     public void setUsername(String username) throws UnsupportedOperationException {
         if (username.isEmpty())
@@ -50,8 +50,8 @@ public abstract class AClient {
     }
 
     /**
-     * @param password
-     * @throws UnsupportedOperationException
+     * @param password Password
+     * @throws UnsupportedOperationException If password is empty
      */
     public void setPassword(String password) throws UnsupportedOperationException {
         if (password.isEmpty())
@@ -61,42 +61,42 @@ public abstract class AClient {
     }
 
     /**
-     * @return Acces Token Model
+     * @return Access Token {@link com.reydenx.models.TokenModel}
      */
     public TokenModel getToken() {
         return Token;
     }
 
     /**
-     * @param token
+     * @param token {@link com.reydenx.models.TokenModel}
      */
     public void setToken(TokenModel token) {
         Token = token;
     }
 
     /**
-     * @return Http Client
+     * @return {@link java.net.http.HttpClient}
      */
     public HttpClient getHttpClient() {
         return httpClient;
     }
 
     /**
-     * @param httpClient
+     * @param httpClient {@link java.net.http.HttpClient}
      */
     public void setHttpClient(HttpClient httpClient) {
         this.httpClient = httpClient;
     }
 
     /**
-     * @return Object Mapper
+     * @return {@link com.fasterxml.jackson.databind.ObjectMapper}
      */
     public ObjectMapper getMapper() {
         return mapper;
     }
 
     /**
-     * @param mapper
+     * @param mapper {@link com.fasterxml.jackson.databind.ObjectMapper}
      */
     public void setMapper(ObjectMapper mapper) {
         this.mapper = mapper;

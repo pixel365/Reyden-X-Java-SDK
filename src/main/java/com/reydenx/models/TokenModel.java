@@ -3,16 +3,24 @@ package com.reydenx.models;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 /**
  * Access Token Model
  * 
  * @since 1.0
  */
+@Getter
 public class TokenModel {
+    /**
+     * Access token
+     */
     @JsonProperty("access_token")
     private String accessToken = "";
 
+    /**
+     * Token expiration date and time
+     */
     @JsonProperty("expires_in")
     private String expiresIn = "";
 
@@ -32,19 +40,5 @@ public class TokenModel {
 
         ZonedDateTime dateTime = ZonedDateTime.parse(getExpiresIn());
         return Instant.now().isBefore(dateTime.toInstant());
-    }
-
-    /**
-     * @return Access Token
-     */
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    /**
-     * @return Token expiration date
-     */
-    public String getExpiresIn() {
-        return expiresIn;
     }
 }

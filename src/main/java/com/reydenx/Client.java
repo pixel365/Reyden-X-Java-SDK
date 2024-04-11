@@ -33,17 +33,17 @@ import com.reydenx.models.TokenModel;
  * 
  * <pre>{@code
  * Client client = new Client("USERNAME", "PASSWORD");
- * ResultModel<OrderModel> details = client.getOrdersInstance().orderDetails(123456);
+ * ResultModel<OrderModel> details = client.getOrderInstance().orderDetails(123456);
  * }</pre>
  * 
  * @since 1.0
  */
 public class Client extends AClient implements IClient {
-    protected Action action = null;
-    protected Order order = null;
-    protected Price price = null;
-    protected Traffic traffic = null;
-    protected User user = null;
+    protected Action actionInstance = null;
+    protected Order orderInstance = null;
+    protected Price priceInstance = null;
+    protected Traffic trafficInstance = null;
+    protected User userInstance = null;
 
     public Client(String username, String password) throws ReydenXException {
         setMapper(newObjectMapper());
@@ -53,17 +53,32 @@ public class Client extends AClient implements IClient {
         authentication();
     }
 
+    /**
+     * @return New {@link com.fasterxml.jackson.databind.ObjectMapper}
+     */
     protected ObjectMapper newObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return mapper;
     }
 
+    /**
+     * @throws UnauthorizedException
+     */
     protected void checkAuthentication() throws UnauthorizedException {
         if (!isAuthenticated())
             throw new UnauthorizedException();
     }
 
+    /**
+     * @param <T> Any Model
+     * @param method Request method
+     * @param endpoint API endpoint relative path
+     * @param payload Request data
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} of model
+     * @return <T> Any Model
+     * @throws ReydenXException
+     */
     protected <T> T request(String method, String endpoint, String payload,
             TypeReference<T> typeReference) throws ReydenXException {
         checkAuthentication();
@@ -195,42 +210,42 @@ public class Client extends AClient implements IClient {
     }
 
     @Override
-    public Action getActionsInstance() {
-        if (Objects.isNull(action))
-            action = new Action(this);
+    public Action getActionInstance() {
+        if (Objects.isNull(actionInstance))
+            actionInstance = new Action(this);
 
-        return action;
+        return actionInstance;
     }
 
     @Override
-    public Order getOrdersInstance() {
-        if (Objects.isNull(order))
-            order = new Order(this);
+    public Order getOrderInstance() {
+        if (Objects.isNull(orderInstance))
+            orderInstance = new Order(this);
 
-        return order;
+        return orderInstance;
     }
 
     @Override
-    public Price getPricesInstance() {
-        if (Objects.isNull(price))
-            price = new Price(this);
+    public Price getPriceInstance() {
+        if (Objects.isNull(priceInstance))
+            priceInstance = new Price(this);
 
-        return price;
+        return priceInstance;
     }
 
     @Override
     public Traffic getTrafficInstance() {
-        if (Objects.isNull(traffic))
-            traffic = new Traffic(this);
+        if (Objects.isNull(trafficInstance))
+            trafficInstance = new Traffic(this);
 
-        return traffic;
+        return trafficInstance;
     }
 
     @Override
     public User getUserInstance() {
-        if (Objects.isNull(user))
-            user = new User(this);
+        if (Objects.isNull(userInstance))
+            userInstance = new User(this);
 
-        return user;
+        return userInstance;
     }
 }

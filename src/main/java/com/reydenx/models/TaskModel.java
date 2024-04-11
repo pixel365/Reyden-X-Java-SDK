@@ -1,6 +1,7 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 /**
  * Task model
@@ -8,55 +9,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @since 1.0
  * @see com.reydenx.impl.Action
  */
+@Getter
 public class TaskModel {
+    /**
+     * Task Id
+     */
     @JsonProperty("id")
     protected String id;
 
+    /**
+     * Link to check status
+     */
     @JsonProperty("url")
     protected String url;
 
+    /**
+     * Date and time until which status check is available
+     */
     @JsonProperty("expires_at")
     protected String expiresAt;
-
-    /**
-     * @return Task Id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * @return Link to check status
-     */
-    public String getUrl() {
-        return url;
-    }
-
-    /**
-     * @param url
-     */
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    /**
-     * @return Date and time until which status check is available
-     */
-    public String getExpiresAt() {
-        return expiresAt;
-    }
-
-    /**
-     * @param expiresAt
-     */
-    public void setExpiresAt(String expiresAt) {
-        this.expiresAt = expiresAt;
-    }
 }

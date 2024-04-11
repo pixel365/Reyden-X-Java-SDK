@@ -1,48 +1,27 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
+ * Smooth Gain settings
+ * 
  * @since 1.0
  * @see com.reydenx.models.OrderParametersModel
  */
+@Getter
+@AllArgsConstructor
 public class SmoothGainModel {
+    /**
+     * Status
+     */
     @JsonProperty("enabled")
     protected boolean enabled;
 
+    /**
+     * Minutes
+     */
     @JsonProperty("minutes")
     protected Integer minutes;
-
-    public SmoothGainModel(boolean enabled, Integer minutes) {
-        this.setEnabled(enabled);
-        this.setMinutes(minutes);
-    }
-
-    /**
-     * @return Status
-     */
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    /**
-     * @param enabled
-     */
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    /**
-     * @return Minutes
-     */
-    public Integer getMinutes() {
-        return minutes;
-    }
-
-    /**
-     * @param minutes
-     */
-    public void setMinutes(Integer minutes) {
-        this.minutes = minutes;
-    }
 }

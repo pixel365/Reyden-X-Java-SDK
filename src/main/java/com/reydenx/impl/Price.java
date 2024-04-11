@@ -22,8 +22,14 @@ public class Price {
         this.typeRef = new TypeReference<ResultModel<List<PriceModel>>>() {};
     }
 
-    private ResultModel<List<PriceModel>> r(String code) throws Throwable {
-        return this.client.<ResultModel<List<PriceModel>>>get("/prices/" + code + "/", typeRef);
+    /**
+     * @param platformEnum {@link com.reydenx.models.PlatformEnum}
+     * @return {@link com.reydenx.models.ResultModel<List<PriceModel>>}
+     * @throws Throwable
+     */
+    private ResultModel<List<PriceModel>> r(PlatformEnum platformEnum) throws Throwable {
+        return this.client.<ResultModel<List<PriceModel>>>get(
+                "/prices/" + platformEnum.toString() + "/", typeRef);
     }
 
     /**
@@ -32,7 +38,7 @@ public class Price {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<List<PriceModel>> result = client.getPricesInstance().twitch();
+     * ResultModel<List<PriceModel>> result = client.getPriceInstance().twitch();
      * }</pre>
      * 
      * @return {@link com.reydenx.models.ResultModel<List<PriceModel>>}
@@ -43,7 +49,7 @@ public class Price {
      *      "https://api.reyden-x.com/docs#/Prices/prices_v1_prices__platform_code___get">Schema</a>
      */
     public ResultModel<List<PriceModel>> twitch() throws Throwable {
-        return this.r(PlatformEnum.TWITCH.toString());
+        return this.r(PlatformEnum.TWITCH);
     }
 
     /**
@@ -52,7 +58,7 @@ public class Price {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<List<PriceModel>> result = client.getPricesInstance().youtube();
+     * ResultModel<List<PriceModel>> result = client.getPriceInstance().youtube();
      * }</pre>
      * 
      * @return {@link com.reydenx.models.ResultModel<List<PriceModel>>}
@@ -63,7 +69,7 @@ public class Price {
      *      "https://api.reyden-x.com/docs#/Prices/prices_v1_prices__platform_code___get">Schema</a>
      */
     public ResultModel<List<PriceModel>> youTube() throws Throwable {
-        return this.r(PlatformEnum.YOUTUBE.toString());
+        return this.r(PlatformEnum.YOUTUBE);
     }
 
     /**
@@ -72,7 +78,7 @@ public class Price {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<List<PriceModel>> result = client.getPricesInstance().goodgame();
+     * ResultModel<List<PriceModel>> result = client.getPriceInstance().goodgame();
      * }</pre>
      * 
      * @return {@link com.reydenx.models.ResultModel<List<PriceModel>>}
@@ -82,7 +88,7 @@ public class Price {
      *      "https://api.reyden-x.com/docs#/Prices/prices_v1_prices__platform_code___get">Schema</a>
      */
     public ResultModel<List<PriceModel>> goodGame() throws Throwable {
-        return this.r(PlatformEnum.GOODGAME.toString());
+        return this.r(PlatformEnum.GOODGAME);
     }
 
     /**
@@ -91,7 +97,7 @@ public class Price {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<List<PriceModel>> result = client.getPricesInstance().trovo();
+     * ResultModel<List<PriceModel>> result = client.getPriceInstance().trovo();
      * }</pre>
      * 
      * @return {@link com.reydenx.models.ResultModel<List<PriceModel>>}
@@ -101,7 +107,7 @@ public class Price {
      *      "https://api.reyden-x.com/docs#/Prices/prices_v1_prices__platform_code___get">Schema</a>
      */
     public ResultModel<List<PriceModel>> trovo() throws Throwable {
-        return this.r(PlatformEnum.TROVO.toString());
+        return this.r(PlatformEnum.TROVO);
     }
 
     /**
@@ -110,7 +116,7 @@ public class Price {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<List<PriceModel>> result = client.getPricesInstance().vkPlay();
+     * ResultModel<List<PriceModel>> result = client.getPriceInstance().vkPlay();
      * }</pre>
      * 
      * @return {@link com.reydenx.models.ResultModel<List<PriceModel>>}
@@ -120,6 +126,6 @@ public class Price {
      *      "https://api.reyden-x.com/docs#/Prices/prices_v1_prices__platform_code___get">Schema</a>
      */
     public ResultModel<List<PriceModel>> vkPlay() throws Throwable {
-        return this.r(PlatformEnum.VKPLAY.toString());
+        return this.r(PlatformEnum.VKPLAY);
     }
 }

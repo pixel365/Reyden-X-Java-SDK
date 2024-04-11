@@ -1,71 +1,46 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+/**
+ * @since 1.2
+ */
+@Getter
 public class ParametersModel {
+    /**
+     * Launch Mode (Possible values: auto, manual, delay)
+     */
     @JsonProperty("launch_mode")
     protected String launchMode;
 
+    /**
+     * Work Mode (Possible values: with-stream, without-stream)
+     */
     @JsonProperty("work_mode")
     protected String workMode;
 
+    /**
+     * delay is enabled
+     */
     @JsonProperty("delay")
     protected boolean delay;
 
+    /**
+     * Delay time in seconds
+     */
     @JsonProperty("delay_time")
     protected Integer delayTime;
 
+    /**
+     * Even distribution is enabled
+     */
     @JsonProperty("even_distribution")
     protected boolean evenDistribution;
 
+    /**
+     * Even distribution time in seconds
+     */
     @JsonProperty("even_distribution_time")
     protected Integer evenDistributionTime;
-
-    public String getLaunchMode() {
-        return launchMode;
-    }
-
-    public void setLaunchMode(String launchMode) {
-        this.launchMode = launchMode;
-    }
-
-    public String getWorkMode() {
-        return workMode;
-    }
-
-    public void setWorkMode(String workMode) {
-        this.workMode = workMode;
-    }
-
-    public boolean isDelay() {
-        return delay;
-    }
-
-    public void setDelay(boolean delay) {
-        this.delay = delay;
-    }
-
-    public Integer getDelayTime() {
-        return delayTime;
-    }
-
-    public void setDelayTime(Integer delayTime) {
-        this.delayTime = delayTime;
-    }
-
-    public boolean isEvenDistribution() {
-        return evenDistribution;
-    }
-
-    public void setEvenDistribution(boolean evenDistribution) {
-        this.evenDistribution = evenDistribution;
-    }
-
-    public Integer getEvenDistributionTime() {
-        return evenDistributionTime;
-    }
-
-    public void setEvenDistributionTime(Integer evenDistributionTime) {
-        this.evenDistributionTime = evenDistributionTime;
-    }
 }

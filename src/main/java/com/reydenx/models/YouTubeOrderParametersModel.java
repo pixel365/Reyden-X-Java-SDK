@@ -1,32 +1,25 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
+ * Parameters for create YouTube Order
+ * 
  * @since 1.0
- * @see com.reydenx.impl.Order#createOrderForStream(IOrderParameters)
  */
+@Getter
+@Setter
 public class YouTubeOrderParametersModel extends OrderParametersModel {
+    /**
+     * YouTube channel url
+     */
     @JsonProperty("channel_url")
     String channelUrl;
 
     @Override
     public PlatformEnum getPlatform() {
         return PlatformEnum.YOUTUBE;
-    }
-
-    /**
-     * @return YouTube Channel Url
-     */
-    public String getChannelUrl() {
-        return channelUrl;
-    }
-
-    /**
-     * @param channelUrl
-     */
-    public OrderParametersModel setChannelUrl(String channelUrl) {
-        this.channelUrl = channelUrl;
-        return this;
     }
 }

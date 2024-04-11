@@ -1,6 +1,8 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * User account model
@@ -8,225 +10,71 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @since 1.0
  * @see com.reydenx.impl.User#account()
  */
+@Getter
 public class UserModel extends AId {
+    /**
+     * Username
+     */
     @JsonProperty("username")
     protected String username;
 
+    /**
+     * Registration date
+     */
     @JsonProperty("date_joined")
     protected String dateJoined;
 
+    /**
+     * Email
+     */
     @JsonProperty("email")
     protected String email;
 
+    /**
+     * Activity status
+     */
     @JsonProperty("is_active")
     protected boolean active;
 
+    /**
+     * Blocking status
+     */
     @JsonProperty("is_blocked")
     protected boolean blocked;
 
+    /**
+     * Reseller status
+     */
     @JsonProperty("is_reseller")
     protected boolean reseller;
 
-    @JsonProperty("has_image")
-    protected boolean avatar;
-
-    @JsonProperty("image_extension")
-    protected String avatarExtension;
-
+    /**
+     * Avatar URL if exists
+     */
     @JsonProperty("image_url")
     protected String avatarUrl;
 
+    /**
+     * Currency Id
+     */
     @JsonProperty("currency_id")
     protected Integer currencyId;
 
+    /**
+     * Personal discount, if available
+     */
     @JsonProperty("discount_value")
     protected Float discountValue;
 
+    /**
+     * Twitch Id, if linked account exists
+     */
     @JsonProperty("twitch_id")
     protected Integer twitchId;
 
+    /**
+     * Twitch Username, if linked account exists
+     */
     @JsonProperty("twitch_login")
     protected String twitchUsername;
-
-    /**
-     * @return Username
-     */
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * @param username
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    /**
-     * @return Registration date
-     */
-    public String getDateJoined() {
-        return dateJoined;
-    }
-
-    /**
-     * @param dateJoined
-     */
-    public void setDateJoined(String dateJoined) {
-        this.dateJoined = dateJoined;
-    }
-
-    /**
-     * @return Email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return Is User Active?
-     */
-    public boolean isActive() {
-        return active;
-    }
-
-    /**
-     * @param active
-     */
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    /**
-     * @return Is User Banned?
-     */
-    public boolean isBlocked() {
-        return blocked;
-    }
-
-    /**
-     * @param blocked
-     */
-    public void setBlocked(boolean blocked) {
-        this.blocked = blocked;
-    }
-
-    /**
-     * @return Is User Reseller?
-     */
-    public boolean isReseller() {
-        return reseller;
-    }
-
-    /**
-     * @param reseller
-     */
-    public void setReseller(boolean reseller) {
-        this.reseller = reseller;
-    }
-
-    /**
-     * @return Has Avatar?
-     */
-    public boolean hasAvatar() {
-        return avatar;
-    }
-
-    /**
-     * @param avatar
-     */
-    public void setAvatar(boolean avatar) {
-        this.avatar = avatar;
-    }
-
-    /**
-     * @return If the User has an avatar, then its extension
-     */
-    public String getAvatarExtension() {
-        return avatarExtension;
-    }
-
-    /**
-     * @param avatarExtension
-     */
-    public void setAvatarExtension(String avatarExtension) {
-        this.avatarExtension = avatarExtension;
-    }
-
-    /**
-     * @return If the User has an avatar, then a link to it
-     */
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    /**
-     * @param avatarUrl
-     */
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    /**
-     * @return Currency Id
-     */
-    public Integer getCurrencyId() {
-        return currencyId;
-    }
-
-    /**
-     * @param currencyId
-     */
-    public void setCurrencyId(Integer currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    /**
-     * @return Personal discount, if available
-     */
-    public Float getDiscountValue() {
-        return discountValue;
-    }
-
-    /**
-     * @param discountValue
-     */
-    public void setDiscountValue(Float discountValue) {
-        this.discountValue = discountValue;
-    }
-
-    /**
-     * @return Twitch Id, if linked account exists
-     */
-    public Integer getTwitchId() {
-        return twitchId;
-    }
-
-    /**
-     * @param twitchId
-     */
-    public void setTwitchId(Integer twitchId) {
-        this.twitchId = twitchId;
-    }
-
-    /**
-     * @return Twitch Username, if linked account exists
-     */
-    public String getTwitchUsername() {
-        return twitchUsername;
-    }
-
-    /**
-     * @param twitchUsername
-     */
-    public void setTwitchUsername(String twitchUsername) {
-        this.twitchUsername = twitchUsername;
-    }
 }

@@ -1,60 +1,31 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 /**
+ * Minimum and Maximum settings
+ * 
  * @since 1.0
  * @see com.reydenx.models.PriceModel
  */
+@Getter
 public class MinMaxStepModel {
+    /**
+     * Minimum value
+     */
     @JsonProperty("min")
     protected Integer min;
 
+    /**
+     * Maximum value
+     */
     @JsonProperty("max")
     protected Integer max;
 
+    /**
+     * Step
+     */
     @JsonProperty("step")
     protected Integer step;
-
-    /**
-     * @return Min value
-     */
-    public Integer getMin() {
-        return min;
-    }
-
-    /**
-     * @param min
-     */
-    public void setMin(Integer min) {
-        this.min = min;
-    }
-
-    /**
-     * @return Max value
-     */
-    public Integer getMax() {
-        return max;
-    }
-
-    /**
-     * @param max
-     */
-    public void setMax(Integer max) {
-        this.max = max;
-    }
-
-    /**
-     * @return Step
-     */
-    public Integer getStep() {
-        return step;
-    }
-
-    /**
-     * @param step
-     */
-    public void setStep(Integer step) {
-        this.step = step;
-    }
 }

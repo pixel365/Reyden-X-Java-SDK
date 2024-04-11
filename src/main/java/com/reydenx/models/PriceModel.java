@@ -1,6 +1,7 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 /**
  * Tariff Model
@@ -8,106 +9,45 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @since 1.0
  * @see com.reydenx.impl.Price
  */
+@Getter
 public class PriceModel extends AId {
+    /**
+     * Tariff name
+     */
     @JsonProperty("name")
     protected String name;
 
+    /**
+     * Content format
+     */
     @JsonProperty("format")
     protected String format;
 
+    /**
+     * Price
+     */
     @JsonProperty("price")
     protected Float price;
 
+    /**
+     * Impression limits
+     * 
+     * @see com.reydenx.models.MinMaxStepModel
+     */
     @JsonProperty("views")
     protected MinMaxStepModel views;
 
+    /**
+     * Limitations on the number of stream viewers
+     * 
+     * @see com.reydenx.models.MinMaxStepModel
+     */
     @JsonProperty("online_viewers")
     protected MinMaxStepModel onlineViewers;
 
+    /**
+     * Tariff description
+     */
     @JsonProperty("description")
     protected String description;
-
-    /**
-     * @return Tariff Name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return Content Format
-     */
-    public String getFormat() {
-        return format;
-    }
-
-    /**
-     * @param format
-     */
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    /**
-     * @return Cost per 1 impression
-     */
-    public Float getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price
-     */
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    /**
-     * @return Impressions Options
-     */
-    public MinMaxStepModel getViews() {
-        return views;
-    }
-
-    /**
-     * @param views
-     */
-    public void setViews(MinMaxStepModel views) {
-        this.views = views;
-    }
-
-    /**
-     * @return Viewer Options
-     */
-    public MinMaxStepModel getOnlineViewers() {
-        return onlineViewers;
-    }
-
-    /**
-     * @param onlineViewers
-     */
-    public void setOnlineViewers(MinMaxStepModel onlineViewers) {
-        this.onlineViewers = onlineViewers;
-    }
-
-    /**
-     * @return Tariff Description
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * @param description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

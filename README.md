@@ -6,6 +6,16 @@
 
 - [API Documentation](https://api.reyden-x.com/docs)
 
+### Usage
+
+```xml
+<dependency>
+    <groupId>io.github.pixel365</groupId>
+    <artifactId>reydenx</artifactId>
+    <version>1.3</version>
+</dependency>
+```
+
 ### Quickstart
 
 ```java
@@ -15,7 +25,7 @@ import com.reydenx.models.OrderModel;
 
 try {
     Client client = new Client("USERNAME", "PASSWORD");
-    ResultModel<OrderModel> result = client.getOrdersInstance()
+    ResultModel<OrderModel> result = client.getOrderInstance()
         .orderDetails(123456);
     System.out.println(result.getResult().getId());
 } catch (Throwable e) {

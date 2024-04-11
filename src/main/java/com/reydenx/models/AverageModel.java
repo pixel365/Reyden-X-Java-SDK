@@ -1,27 +1,24 @@
 package com.reydenx.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+/**
+ * @since 1.2
+ */
+@Getter
 public class AverageModel {
+    /**
+     * SettingsAndFactModel
+     * 
+     * @see com.reydenx.models.SettingsAndFactModel
+     */
     @JsonProperty("online")
     protected SettingsAndFactModel online;
 
+    /**
+     * Total session time
+     */
     @JsonProperty("session_in_seconds")
     protected Integer sessionInSeconds;
-
-    public SettingsAndFactModel getOnline() {
-        return online;
-    }
-
-    public void setOnline(SettingsAndFactModel online) {
-        this.online = online;
-    }
-
-    public Integer getSessionInSeconds() {
-        return sessionInSeconds;
-    }
-
-    public void setSessionInSeconds(Integer sessionInSeconds) {
-        this.sessionInSeconds = sessionInSeconds;
-    }
 }
