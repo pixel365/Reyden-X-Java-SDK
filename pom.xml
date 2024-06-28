@@ -6,7 +6,7 @@
 
     <groupId>io.github.pixel365</groupId>
     <artifactId>reydenx</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
     <packaging>jar</packaging>
 
     <name>Reyden-X SDK</name>
@@ -34,7 +34,7 @@
         <connection>scm:git:git:github.com/pixel365/Reyden-X-Java-SDK.git</connection>
         <developerConnection>scm:git:ssh://github.com/pixel365/Reyden-X-Java-SDK.git</developerConnection>
         <url>https://github.com/pixel365/Reyden-X-Java-SDK</url>
-        <tag>1.3</tag>
+        <tag>1.4</tag>
     </scm>
 
     <distributionManagement>

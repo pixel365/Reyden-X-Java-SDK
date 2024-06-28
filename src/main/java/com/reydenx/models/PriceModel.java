@@ -50,4 +50,10 @@ public class PriceModel extends AId {
      */
     @JsonProperty("description")
     protected String description;
+
+    /*
+     * Tariff category
+     */
+    @JsonProperty("category_id")
+    protected Integer categoryId;
 }

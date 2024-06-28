@@ -5,8 +5,10 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.reydenx.IClient;
 import com.reydenx.models.PlatformEnum;
+import com.reydenx.models.PriceCategoryModel;
 import com.reydenx.models.PriceModel;
 import com.reydenx.models.ResultModel;
+import com.reydenx.models.UserModel;
 
 /**
  * Class for obtaining current tariffs for creating new orders
@@ -19,7 +21,8 @@ public class Price {
 
     public Price(IClient client) {
         this.client = client;
-        this.typeRef = new TypeReference<ResultModel<List<PriceModel>>>() {};
+        this.typeRef = new TypeReference<ResultModel<List<PriceModel>>>() {
+        };
     }
 
     /**
@@ -127,5 +130,26 @@ public class Price {
      */
     public ResultModel<List<PriceModel>> vkPlay() throws Throwable {
         return this.r(PlatformEnum.VKPLAY);
+    }
+
+    /**
+     * All price categories
+     * 
+     * <pre>
+     * <b>Example:</b>{@code
+     * Client client = new Client("USERNAME", "PASSWORD");
+     * ResultModel<List<PriceCategoryModel>> result = client.getPriceInstance().categories();
+     * }</pre>
+     * 
+     * @return {@link com.reydenx.models.ResultModel<List<PriceCategoryModel>>}
+     * @throws Throwable
+     * 
+     * @see <a href=
+     *      "https://api.reyden-x.com/docs#/Price%20Categories/categories_v1_price_categories__get">Schema</a>
+     */
+    public ResultModel<List<PriceCategoryModel>> categories() throws Throwable {
+        return this.client.<ResultModel<List<PriceCategoryModel>>>get("/price-categories/",
+                new TypeReference<ResultModel<List<PriceCategoryModel>>>() {
+                });
     }
 }
