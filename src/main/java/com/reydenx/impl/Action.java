@@ -1,13 +1,19 @@
 package com.reydenx.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.reydenx.IClient;
 import com.reydenx.models.ActionModel;
+import com.reydenx.models.IdAndQuantityModel;
 import com.reydenx.models.ResultModel;
 import com.reydenx.models.TaskStatusModel;
 
 /**
- * Class for managing an existing order and checking the status of an order operation
+ * Class for managing an existing order and checking the status of an order
+ * operation
  * 
  * @since 1.0
  */
@@ -18,7 +24,8 @@ public class Action {
 
     public Action(IClient client) {
         this.client = client;
-        this.typeRef = new TypeReference<ResultModel<ActionModel>>() {};
+        this.typeRef = new TypeReference<ResultModel<ActionModel>>() {
+        };
     }
 
     /**
@@ -28,6 +35,17 @@ public class Action {
      */
     protected ResultModel<ActionModel> r(String path) throws Throwable {
         return this.client.<ResultModel<ActionModel>>patch(path, null, typeRef);
+    }
+
+    protected ResultModel<ActionModel> r(String path, Map<String, String> payload) throws Throwable {
+        return this.client.<ResultModel<ActionModel>>patch(path, payload.toString(), typeRef);
+    }
+
+    protected Map<String, String> launchModeParams(String mode, Integer delayTime) {
+        Map<String, String> payload = new HashMap<String, String>();
+        payload.put("mode", mode);
+        payload.put("delay_time", delayTime.toString());
+        return payload;
     }
 
     /**
@@ -124,7 +142,7 @@ public class Action {
      * }</pre>
      * 
      * @param orderId Order Id
-     * @param value The value to be set for this operation
+     * @param value   The value to be set for this operation
      * @return {@link com.reydenx.models.ResultModel<ActionModel>}
      * @throws Throwable
      * 
@@ -143,12 +161,11 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result =
-     *         client.getActionInstance().changeIncreaseValue(123456, 100);
+     * ResultModel<ActionModel> result = client.getActionInstance().changeIncreaseValue(123456, 100);
      * }</pre>
      * 
      * @param orderId Order Id
-     * @param value The value to be set for this operation
+     * @param value   The value to be set for this operation
      * @return {@link com.reydenx.models.ResultModel<ActionModel>}
      * @throws Throwable
      * 
@@ -171,7 +188,7 @@ public class Action {
      * }</pre>
      * 
      * @param orderId Order Id
-     * @param value The value to be set for this operation
+     * @param value   The value to be set for this operation
      * @return {@link com.reydenx.models.ResultModel<ActionModel>}
      * @throws Throwable
      * 
@@ -193,7 +210,7 @@ public class Action {
      * }</pre>
      * 
      * @param orderId Order Id
-     * @param value The value to be set for this operation
+     * @param value   The value to be set for this operation
      * @return {@link com.reydenx.models.ResultModel<ActionModel>}
      * @throws Throwable
      * 
@@ -213,11 +230,11 @@ public class Action {
      * <pre>
      * <b>Example:</b>{@code
      * Client client = new Client("USERNAME", "PASSWORD");
-     * ResultModel<ActionModel> result = client.getActionInstance().taskStatus(123456, "TASK_ID"");
+     * ResultModel<ActionModel> result = client.getActionInstance().taskStatus(123456, "TASK_ID");
      * }</pre>
      * 
      * @param orderId Order Id
-     * @param taskId Task Id
+     * @param taskId  Task Id
      * @return {@link com.reydenx.models.TaskStatusModel}
      * @throws Throwable
      * 
@@ -227,6 +244,81 @@ public class Action {
     public TaskStatusModel taskStatus(Integer orderId, String taskId) throws Throwable {
         return this.client.<TaskStatusModel>get(
                 endpointPrefix + orderId + "/task/" + taskId + "/status/",
-                new TypeReference<TaskStatusModel>() {});
+                new TypeReference<TaskStatusModel>() {
+                });
+    }
+
+    /**
+     * Change Order launch mode to AUTO
+     * 
+     * <br/>
+     * 
+     * <pre>
+     * <b>Example:</b>{@code
+     * Client client = new Client("USERNAME", "PASSWORD");
+     * ResultModel<ActionModel> result = client.getActionInstance().changeLaunchModeToAuto(123456);
+     * }</pre>
+     * 
+     * @param orderId Order Id
+     * @return {@link com.reydenx.models.ResultModel<ActionModel>}
+     * @throws Throwable
+     * 
+     * @see <a href=
+     *      "https://api.reyden-x.com/docs#/Orders/change_launch_params_v1_orders__order_id__action_change_launch__patch">Schema</a>
+     */
+    public ResultModel<ActionModel> changeLaunchModeToAuto(Integer orderId) throws Throwable {
+        return this.r(endpointPrefix + orderId + "/action/change/launch/",
+                this.launchModeParams("auto", 0));
+    }
+
+    /**
+     * Change Order launch mode to MANUAL
+     * 
+     * <br/>
+     * 
+     * <pre>
+     * <b>Example:</b>{@code
+     * Client client = new Client("USERNAME", "PASSWORD");
+     * ResultModel<ActionModel> result = client.getActionInstance().changeLaunchModeToManual(123456);
+     * }</pre>
+     * 
+     * @param orderId Order Id
+     * @return {@link com.reydenx.models.ResultModel<ActionModel>}
+     * @throws Throwable
+     * 
+     * @see <a href=
+     *      "https://api.reyden-x.com/docs#/Orders/change_launch_params_v1_orders__order_id__action_change_launch__patch">Schema</a>
+     */
+    public ResultModel<ActionModel> changeLaunchModeToManual(Integer orderId) throws Throwable {
+        return this.r(endpointPrefix + orderId + "/action/change/launch/",
+                this.launchModeParams("manual", 0));
+    }
+
+    /**
+     * Change Order launch mode to DELAY
+     * 
+     * <br/>
+     * 
+     * <pre>
+     * <b>Example:</b>{@code
+     * Client client = new Client("USERNAME", "PASSWORD");
+     * ResultModel<ActionModel> result = client.getActionInstance().changeLaunchModeToDelay(123456, 15);
+     * }</pre>
+     * 
+     * @param orderId   Order Id
+     * @param delayTime Delay Time in minutes
+     * @return {@link com.reydenx.models.ResultModel<ActionModel>}
+     * @throws Throwable
+     * 
+     * @see <a href=
+     *      "https://api.reyden-x.com/docs#/Orders/change_launch_params_v1_orders__order_id__action_change_launch__patch">Schema</a>
+     */
+    public ResultModel<ActionModel> changeLaunchModeToDelay(Integer orderId, Integer delayTime) throws Throwable {
+        if (delayTime < 5 || delayTime > 240) {
+            throw new IllegalArgumentException("The number of minutes for delayed start should be from 5 to 240");
+        }
+
+        return this.r(endpointPrefix + orderId + "/action/change/launch/",
+                this.launchModeParams("delay", delayTime));
     }
 }
